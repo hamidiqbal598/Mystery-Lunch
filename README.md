@@ -108,6 +108,13 @@ There is a Employee and Mystery CRUD having All the implementations including au
     ```
    ![api](public/views/mystery_lunches.png)
 
+8. I created crone job which should be run in the first day of the month which is created in 
+   
+    Directory: lib->tasks->mystery.rake
+
+
+   ![api](public/views/crone_job.png)
+
 For Further Understanding, please run the code and apply the filters.
 
 ### Test Case Implementation
@@ -129,7 +136,7 @@ I used Mostly Rspec and little bit Capybara for Test Cases.
     * Mystery all views (CRUD)
     * Employee all view (CRUD)
 
-### IN Total 59 Test Cases are implemented on localhost testing.
+### In Total 59 Test Cases are implemented on localhost testing.
 
 ![test_cases](public/views/test_cases.png)
 
