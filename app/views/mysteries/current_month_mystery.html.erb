@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+
+  </style>
+</head>
+<body>
+
+
+
+
+</body>
+</html>
+
+<div class="center">
+  <h2>Meet The Current Mystery Team </h2>
+</div>
+
+<br>
+
+<div class="container">
+  <% @mysteries.each do |mystery| %>
+    <div class="row_picture">
+      <% mystery.employees.each do |employee| %>
+        <div class="column" style="letter-spacing: normal">
+          <div class="card">
+            <img src= '<%= employee.photo.attached? ? (url_for(employee.photo)) : "No Image" %>' alt="No Image Present" style="width:100%;">
+            <div class="container">
+              <h2><%= employee.name %></h2>
+              <p class="title"><%= employee.department %></p>
+              <p> Joined at: <%= employee.created_at.to_s %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <br>
+    </div>
+  <% end %>
+</div>
+

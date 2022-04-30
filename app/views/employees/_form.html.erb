@@ -1,0 +1,46 @@
+<%= form_with(model: employee) do |form| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+        <% employee.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container">
+    <div class="field">
+      <%= form.label :photo %>
+      <%= form.file_field :photo %>
+    </div>
+    <br>
+  </div>
+
+  <div class="container">
+    <div class="field">
+      <%= form.label :name %>
+      <br>
+      <%= form.text_field :name %>
+    </div>
+    <br>
+  </div>
+
+  <div class="container">
+    <div class="field">
+      <%= form.label :department %>
+      <br>
+      <%= form.select :department, options_for_select(Employee::DEPARTMENTS), input_html: {class: 'form-control chosen-select'} %>
+    </div>
+    <br>
+  </div>
+
+  <div class="container">
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  </div>
+
+<% end %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @mystery.status %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @mystery.month %>
+</p>
+
+<p>
+  <strong>Valid til:</strong>
+  <%= @mystery.valid_till %>
+</p>
+
+<%= link_to 'Edit', edit_mystery_path(@mystery) %> |
+<%= link_to 'Back', mysteries_path %>

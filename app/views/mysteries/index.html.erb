@@ -1,0 +1,103 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>List of Mysteries<%= "(#{@mysteries.count})" %></h1>
+<!--    <h3>-->
+      <%#= button_to 'New Mystery', new_mystery_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+<!--    </h3>-->
+  </div>
+  <div class="container">
+    <div class="">
+      <%= form_tag mysteries_path, method: :get do %>
+        <div class="row">
+          <div class="col-lg-4">
+            <label>Search By Mystery Id : </label>
+            <%= text_field_tag :mystery_id, params[:mystery_id], class: 'form-control' %>
+          </div>
+          <div class="col-lg-4">
+            <label>Search By Employee Name : </label>
+            <%= text_field_tag :employee_name, params[:employee_name], class: 'form-control' %>
+          </div>
+          <div class="col-lg-4">
+            <label>Departments ? </label>
+            <%= select_tag :employee_department, options_for_select(Employee::DEPARTMENTS, params[:employee_department]), prompt: 'Employee Department ? ', class: 'form-control' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <label>Mystery Month ? </label>
+            <%= select_tag :mystery_month, options_for_select(I18n.t("date.month_names").drop(1), params[:mystery_month]), prompt: 'Select Month ', class: 'form-control' %>
+          </div>
+          <div class="col-lg-4">
+            <label>Mystery Year ? </label>
+            <%= select_tag :mystery_year, options_for_select(['2022', '2021', '2020'], params[:mystery_year]), prompt: 'Select Year', class: 'form-control' %>
+          </div>
+          <div class="col-lg-4">
+            <label>Status (Active / In Active)</label>
+            <%= select_tag :status, options_for_select([['Active', 'true'], ['In Active', 'false']], params[:status]), prompt: 'Select Status', class: 'form-control' %>
+          </div>
+        </div>
+        <div style="justify-content: center" class="row">
+          <br>
+          <div class="col-lg-12">
+            <%= submit_tag 'Apply', class: 'btn btn-primary' %>
+            <%= link_to 'Reset', mysteries_path, class: 'btn btn-primary' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="divTable">
+    <div class="headRow">
+      <div class="divCell" align="center">Mystery ID </div>
+      <div class="divCell">Employees Name & Department</div>
+      <div class="divCell">Mystery Month</div>
+      <div class="divCell">Mystery Valid Till</div>
+      <div class="divCell">Mystery Status</div>
+    </div>
+    <% @mysteries.each do |mystery| %>
+      <div class="divRow">
+        <div class="divCell"><%= mystery.id %></div>
+        <div class="divCell">
+          <% unless mystery.employees.empty? %>
+            <% mystery.employees.each do |employee| %>
+              <div class="row">
+                <div class="col-lg-4"><%= employee.name %></div>
+                <div class="col-lg-4"><%= employee.department %></div>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="divCell"><%= " - "  %></div>
+          <% end %>
+
+        </div>
+        <div class="divCell"><%= mystery.month + " " + mystery.created_at.year.to_s %></div>
+        <div class="divCell"><%= mystery.valid_till %></div>
+        <div class="divCell"><%= mystery.status %></div>
+
+        <!--        <div class="divCell">-->
+<!--          <div class="row">-->
+<!--            <div class="col-lg-6">-->
+              <%#= button_to 'Show', employee, :method => :get,  :class => "btn btn-primary btn-lg"%>
+<!--            </div>-->
+<!--            <div class="col-lg-6">-->
+              <%#= button_to 'Edit', edit_employee_path(employee), :method => :get,  :class => "btn btn-primary btn-lg"%>
+<!--            </div>-->
+<!--            <div class="col-lg-6">-->
+              <%#= button_to 'Destroy', (employee), :method => :get, :data => { confirm: 'Are you sure?' },  :class => "btn btn-primary btn-lg"%>
+<!--            </div>-->
+<!--            <div class="col-lg-6">-->
+              <%#= button_to 'Inactive', (employee), :method => :get, :data => { confirm: 'Are you sure?' },  :class => "btn btn-primary btn-lg"%>
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <%= will_paginate @mysteries %>
+  </div>
+</div>
+

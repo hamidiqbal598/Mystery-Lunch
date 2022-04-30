@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>Editing Employee</h1>
+    <h3>
+      <%= button_to 'Show Employee', @employee, :method => :get,  :class => "btn btn-primary btn-lg"%>
+      <%= button_to 'Back to Employees', employees_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+    </h3>
+  </div>
+</div>
+<div class="container">
+  <div style="align-content: center">
+    <%= render 'form', employee: @employee %>
+  </div>
+</div>

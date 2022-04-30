@@ -1,0 +1,41 @@
+<div class="jumbotron">
+  <div class="container">
+    <p id="notice"><%= notice %></p>
+    <h1>Show Employee</h1>
+    <h3>
+      <%= button_to 'Edit Employee', edit_employee_path(@employee), :method => :get,  :class => "btn btn-primary btn-lg"%>
+      <%= button_to 'Back to Employees', employees_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+    </h3>
+  </div>
+</div>
+<div class="container">
+    <div class="headRow">
+      <h2>
+        <strong>Employee Id : </strong>
+        <%= @employee.id %>
+      </h2>
+    </div>
+    <div class="headRow">
+      <h2>
+        <strong>Employee Name : </strong>
+        <%= @employee.name %>
+      </h2>
+    </div>
+    <div class="headRow">
+      <h2>
+        <strong>Employee Department : </strong>
+        <%= @employee.department %>
+      </h2>
+    </div>
+    <div class="headRow">
+      <h2>
+        <strong>Photo : </strong>
+        <br>
+        <div style="font-size: 10px">
+          <%= image_tag @employee.photo if @employee.photo.attached? %>
+        </div>
+        <br>
+      </h2>
+    </div>
+</div>
+

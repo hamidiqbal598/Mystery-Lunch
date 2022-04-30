@@ -1,0 +1,32 @@
+<%= form_with(model: mystery) do |form| %>
+  <% if mystery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mystery.errors.count, "error") %> prohibited this mystery from being saved:</h2>
+
+      <ul>
+        <% mystery.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.check_box :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :month %>
+    <%= form.text_field :month %>
+  </div>
+
+  <div class="field">
+    <%= form.label :valid_til %>
+    <%= form.date_select :valid_til %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
