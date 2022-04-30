@@ -18,11 +18,11 @@ default: &default
   adapter: postgresql
   encoding: unicode
 
-  # If you are using docker instance then you need these below three lines
+  # If you don't want to use docker instance then you need these lines
   # ----------------------------------------------------------------------
-#  host: database
-#  username: postgres
-#  password: password
+  host: database
+  username: postgres
+  password: password
   # ----------------------------------------------------------------------
   # Please Uncomment these above 3 line including host, username, password
 

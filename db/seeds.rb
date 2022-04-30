@@ -18,6 +18,6 @@ employee = %w[Hamid Julie Marta Tiago Claudio Aslam Rajesh Cleo Casper Lokesh Ka
   i+=1
 end
 
-months = %w[January February March April].map do |month|
+months = %w[January February March April May].map do |month|
   Mystery.mystery_lunches(month)
 end
