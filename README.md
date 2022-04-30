@@ -110,6 +110,7 @@ There is a Employee and Mystery CRUD having All the implementations including au
 
 8. I created crone job which should be run in the first day of the month which is created in 
    
+    Gem using: whenever and have a file in config->schedule.rb
     Directory: lib->tasks->mystery.rake
 
 

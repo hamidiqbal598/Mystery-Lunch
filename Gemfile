@@ -31,6 +31,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 
 gem "paperclip", "~> 6.0.0"
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem 'whenever', '~> 0.9.4'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
